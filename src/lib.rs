@@ -26,26 +26,7 @@ mod back_of_house {
     }
 }
 
-mod front_of_house {
-    pub mod hosting {
-        pub fn seat_at_table() {}
-
-        pub fn clean_up_table() {}
-
-        pub fn add_to_waitlist() {}
-
-        pub fn renamed_fn() {}
-    }
-
-    mod serving {
-        fn take_order() {}
-
-        fn serve_order() {}
-
-        fn take_payment() {}
-    }
-}
-
+mod front_of_house;
 
 use crate::front_of_house::hosting::add_to_waitlist; //Allows fn to be called within this scope
 use crate::front_of_house::hosting::renamed_fn as RenamedFn; // 'as' allows us to rename functions
@@ -64,6 +45,8 @@ pub fn eat_at_resaurant() {
     add_to_waitlist();
     add_to_waitlist();
     RenamedFn();
+    clean_up_table();
+    seat_at_table();
 }
 
 fn deliver_order() {}
